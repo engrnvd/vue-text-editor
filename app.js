@@ -14,6 +14,7 @@ Vue.component('textElement', {
         style() {
             let style = {...this.data};
             delete style.text;
+            style.lineHeight = (parseInt(style.fontSize) + 10) + 'px';
             return style;
         }
     },
@@ -63,10 +64,14 @@ Vue.component('actionButton', {
                     console.log('Here we are');
             }
         }
+    }, computed: {
+        isColorInput() {
+            return ['change-bkg-color', 'change-color'].includes(this.name);
+        }
     },
     template: `
     <div :class="'button ' + name" @click="perform">
-        <div class="inputs" style="position:absolute; opacity: 0">
+        <div class="inputs" style="position:absolute; opacity: 0" v-if="isColorInput">
               <input type="color" ref="colorInput" @input="$emit('input', $event.target.value)">  
         </div>
         <slot></slot>
