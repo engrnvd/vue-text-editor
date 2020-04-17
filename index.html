@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue Text Editor</title>
+    <style>
+        .editor {
+            color: rgb(255, 255, 255);
+            opacity: 1;
+            border-radius: 6px;
+            transform: rotate(0deg);
+            padding: 10px;
+            text-align: center;
+            letter-spacing: 0px;
+            font-size: 32px;
+            font-weight: 300;
+            text-decoration: none;
+            box-shadow: rgb(0, 0, 0) 0px 0px 0px 0px;
+            text-transform: initial;
+            font-style: normal;
+            z-index: 2002;
+            text-shadow: rgba(0, 0, 0, 0.2) 2px 2px 0px;
+            line-height: 1.5em;
+            border: 2px solid #777;
+            height: 500px;
+            overflow: auto;
+        }
+        .text-element {
+            white-space: pre-line;
+            padding-left: 3px;
+            padding-right: 3px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="app">
+    <div class="editor" spellcheck="false">
+        <text-element v-for="(item, index) in text" :key="index" :data="item"></text-element>
+    </div>
+</div>
+<script src="libs/vue.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
